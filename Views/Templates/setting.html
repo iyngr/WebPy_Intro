@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+          <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Basic Info</h6>
+                    </div>
+                    <div class="card-body">
+                      <form id="setting-form">
+                          $if session['user'] == None:
+                                <h1>Hi No-one</h1>
+                          $else:
+                                <h1>Basic Info</h1>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input type="text" class="form-control" name="name"  aria-describedby="emailHelp" value="$session['user']['name']">
+
+                          </div>
+                           <div class="form-group">
+                            <label for="exampleInputPassword1">About</label>
+                            <input type="text" class="form-control" name='about'  value="$session['user']['about']">
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputPassword1">Hobbies</label>
+                            <input type="text" class="form-control" name='hobbies'  value="$session['user']['hobbies']">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputPassword1">Birthday</label>
+                            <input type="text" class="form-control" name='bd'  value="$session['user']['bd']">
+                          </div>
+
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                  </div>
+        </div>
+
+                <div class="col-6">
+          <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Experience</h6>
+                    </div>
+                    <div class="card-body">
+                      <form id="exper-form">
+                          $if session['user'] == None:
+                                <h1>Hi No-one</h1>
+                          $else:
+                                <h1>Experience</h1>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input type="text" class="form-control" name="exper_name" id="exampleInputEmail1" aria-describedby="emailHelp" >
+
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputPassword1">Descript</label>
+                            <input type="text" class="form-control" name='exper_content' id="exampleInputPassword1" >
+                          </div>
+
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                  </div>
+                     <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Image</h6>
+                    </div>
+                    <div class="card-body">
+
+                          $if session['user'] == None:
+                                <h1>Hi No-one</h1>
+                          $else:
+                                <h6>Images</h6>
+                          <form id="avatar-upload" method="post" enctype="multipart/form-data" action="/upload-image/avatar">
+                              <div class="form-group">
+                                <input type="file" name="avatar" class="form-control-file" id="exampleFormControlFile1">
+                              </div>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                                <h6>Background</h6>
+                          <form id="background-upload" method="post" enctype="multipart/form-data" action="/upload-image/background">
+                              <div class="form-group">
+                                <input type="file" name="background" class="form-control-file" id="exampleFormControlFile1">
+                              </div>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                    </div>
+                  </div>
+        </div>
+    </div>
+</div>

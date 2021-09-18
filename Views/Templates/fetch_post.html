@@ -1,0 +1,40 @@
+
+$def with (posts ,user_info)
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+  $for post in posts:
+    <div class="col-12-6">
+      <div class="card shadow mb-4 profile">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary" >$user_info['username']</h6><input type="text" id= "deleteid" name="post_id" value="$post['_id']" style="display:none"/>
+                    <small class="form-text text-muted">$post['timestamp']</small>
+                    <button id="delete" type="button" class="btn btn-danger">Delete</button>
+                </div>
+                <div class="card-body post">
+                  <p id="card">$post['content']</p>
+                    <br>
+
+
+                    <div class="comment">
+                    $if post['comment'] != [] :
+                        $for comment in post['comment']:
+                            <span class="post-name">$comment['username']</span>&nbsp;&nbsp;:&nbsp;&nbsp;<span>$comment['time']</span>
+                            <p>$comment['content']</p>
+
+
+
+                    </div>
+                </div>
+
+              </div>
+
+    </div>
+
+  </div>
+      <br>
+  </div>
+</div>

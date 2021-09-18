@@ -1,0 +1,21 @@
+.profile-dtl img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #152036;
+}.user-area .user-avatar {
+    float: right;
+    margin-top: 4px;
+    width: 32px;
+}.user-area {
+
+    padding-right: 0;
+    position: relative;
+}.comment {
+    color: #5b5b5b;
+    padding-left: 5%;
+}.post-name{
+    color:#009688
+}#delete {
+    float: right;
+}

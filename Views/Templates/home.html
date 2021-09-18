@@ -1,0 +1,82 @@
+$def with (posts)
+
+
+
+  $if session['user'] == None:
+    <h1><center>Welcome to Kesi's</center></h1>
+  $else:
+    <h1><center>Hi $session['user']['name']</center></h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">$session['user']['name'] is creating a post</h6>
+                </div>
+                <div class="card-body">
+                        <form id="post-activity">
+                            <div class="form-group">
+                                <textarea name="content" class="form-control" rows="3"></textarea>
+                                <button type="submit" id="post-button" class="btn btn-primary">Submit</button>
+                             </div>
+                        </form>
+                 </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+<div class="container">
+  <div class="row">
+
+  $for post in posts:
+    <div class="col-lg-6">
+      <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <div class="row">
+                        <div class="col-2 user-area">
+                            <img class="user-avatar rounded-circle" src="$post['user']['avatar']" alt="">
+                        </div>
+                        <div class="col-10">
+                            <h6 class="m-0 font-weight-bold text-primary" >$post['user']['username']</h6><br>
+                            <small class="form-text text-muted">$post['timestamp']</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                  <p class="post-content">$post['content']</p>
+                    <br>
+
+
+                    <div class="comment">
+                    $if post['comment'] != [] :
+                        $for comment in post['comment']:
+                            <span class="post-name">$comment['username']</span>&nbsp;&nbsp;:&nbsp;&nbsp;<span>$comment['time']</span>
+                            <p>$comment['content']</p>
+
+
+
+                    </div>
+                </div>
+                <div class="container" style="padding-left:20%">
+
+                $if session['user'] != None:
+                    <form id="comment-activity">
+                                <div class="form-group">
+
+
+                                    <input type="text" name="post_id" value="$post['_id']" style="display:none"/>
+                                    <textarea name="content" class="form-control" rows="3" placeholder="Write some comment"></textarea>
+
+                                 </div>
+                                    <button type="submit"  class="btn btn-primary">Submit</button>
+                     </form>
+
+                </div>
+              </div>
+
+    </div>
+
+      <br>
+  </div>
+</div>

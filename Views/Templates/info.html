@@ -1,0 +1,51 @@
+$def with (user_info,expers)
+
+<div class="container">
+    <div class="row">
+        <div class="col align-self-end">
+            <a href="/settings">Setting</a>
+    </div>
+    </div>
+</div>
+<div class="container">
+<div class="row">
+       <div class="col-6">
+          <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Basic Info</h6>
+                    </div>
+
+
+                    <div class="card-body">
+                       <b>Name</b>
+                      <p>$user_info['name']</p>
+                        <b>About</b>
+                      <p>$user_info['about']</p>
+                        <b>Hobbies</b>
+                      <p>$user_info['hobbies']</p>
+                        <b>Birthday</b>
+                      <p>$user_info['bd']</p>
+                    </div>
+                  </div>
+
+
+
+        </div><br>
+
+        <div class="col-6">
+          <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Experiance</h6>
+                    </div>
+                    <div class="card-body">
+                       $for exper in expers:
+                        <b>$exper['exper_name']</b>
+                        <p>$exper['content']</p>
+                    </div>
+                  </div>
+
+
+
+        </div><br>
+      </div>
+    </div>
